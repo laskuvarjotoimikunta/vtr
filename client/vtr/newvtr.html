@@ -1,6 +1,44 @@
-<template name="vtr">
+<template name="newVtr">
     <div class=span6>
-        <h3>Vaaratilanneraportti</h3>
-          {{> quickForm collection="vtr" id="newVtr" type="insert"}}
+        <h3>Vaaratilanneilmoitus</h3>
+        Täytä ilmoitus parhain tiedoin. Voit muokata ilmoitusta jälkikäteen täydentämällä.
+  {{#autoForm collection="Vtr" id="newVtr" type="insert"}}
+    <fieldset>
+      <legend>Yleiset tiedot</legend>
+      {{> afQuickField name='whoDidReport' options="allowed"}}
+      {{> afQuickField name='name'}}
+      {{> afQuickField name='age'}}
+      {{> afQuickField name='exitWeight'}}
+      {{> afQuickField name='license'}}
+      {{> afQuickField name='certifications'}}
+      {{> afQuickField name='typeOfJump'}}
+      {{> afQuickField name='numberOfJumps'}}
+    </fieldset>
+    <fieldset>
+      <legend>Tapahtuman sijainti ja aika</legend>
+      {{> afQuickField name='skydiverDz'}}
+      {{> afQuickField name='happenedDz'}}
+      {{> afQuickField name='location'}}
+      {{> afQuickField name='date'}}
+    </fieldset>
+    {{> afQuickField name='reserveWasUsed'}}
+    {{#if afFieldValueIs name="reserveWasUsed" value=true}}
+    <fieldset>
+      <legend>Varavarjon tiedot</legend>
+      {{> afQuickField name='reserveCanopy'}}
+      {{> afQuickField name='reserveCanopySize'}}
+      {{> afQuickField name='reserveCanopyYear'}}
+    </fieldset>
+    {{/if}}
+    {{> afQuickField name='personsInjured'}}
+    {{#if afFieldValueIs name="personsInjured" value=true}}
+    <fieldset>
+      <legend>Henkilövahingon tiedot</legend>
+      {{> afQuickField name='avgWind'}}
+      {{> afQuickField name='gustWind'}}
+    </fieldset>
+    {{/if}}
+    <button type="submit" class="btn btn-primary">Lähetä</button>
+  {{/autoForm}}
     </div>
 </template>

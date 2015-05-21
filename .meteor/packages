@@ -11,6 +11,9 @@ iron:router
 meteorhacks:fast-render
 cfs:standard-packages
 cfs:filesystem
-tomi:upload-server
-tomi:upload-jquery
 acemtp:accounts-passwordless
+aldeed:autoform
+rajit:bootstrap3-datepicker
+aldeed:autoform-bs-datepicker
+aldeed:collection2
+mrt:flash-messages
