@@ -4,7 +4,7 @@ AutoForm.hooks({
     // "insert", "update", "submit", or the method name.
     onSuccess: function(operation, result, template) {
       FlashMessages.sendSuccess('Vaaratilanneraportti lähetetty.');
-      Router.go('about',{_id: this.docId});
+      Router.go('listVtr');
     }, 
   }
 });

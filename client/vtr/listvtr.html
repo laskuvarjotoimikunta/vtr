@@ -1,0 +1,17 @@
+
+<template name="listVtr">
+  <div class="page-header">
+    <h1>Kaikki vaaratilanneilmoitukset</h1>
+  </div>
+  
+  <div class="row-fluid">
+        {{#each vtr}}
+          <p>{{name}} | {{date}} @ {{location}}<br>
+          {{whatHappened}}
+          </p>
+        {{/each}}
+    </div>
+</template>
+
+
+

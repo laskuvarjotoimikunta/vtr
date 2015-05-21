@@ -9,10 +9,11 @@
       {{> afQuickField name='name'}}
       {{> afQuickField name='age'}}
       {{> afQuickField name='exitWeight'}}
-      {{> afQuickField name='license'}}
+      {{> afQuickField name='license' options="allowed"}}
       {{> afQuickField name='certifications'}}
-      {{> afQuickField name='typeOfJump'}}
+      {{> afQuickField name='typeOfJump' options="allowed"}}
       {{> afQuickField name='numberOfJumps'}}
+      {{> afQuickField name='numberOfJumpsinThreeMonths'}}
     </fieldset>
     <fieldset>
       <legend>Tapahtuman sijainti ja aika</legend>
@@ -20,6 +21,17 @@
       {{> afQuickField name='happenedDz'}}
       {{> afQuickField name='location'}}
       {{> afQuickField name='date'}}
+    </fieldset>
+    <fieldset>
+      <legend>Kaluston tiedot</legend>
+      {{> afQuickField name='mainCanopy'}}
+      {{> afQuickField name='mainCanopySize'}}
+      {{> afQuickField name='mainCanopyJumpsApprox'}}
+      {{> afQuickField name='jumpsWithCanopy' options="allowed"}}
+      {{> afQuickField name='rig'}}
+      {{> afQuickField name='jumpsWithRig' options="allowed"}}
+      {{> afQuickField name='openingSystem' options="allowed"}}
+      {{> afQuickField name='pilotChuteType' options="allowed"}}
     </fieldset>
     {{> afQuickField name='reserveWasUsed'}}
     {{#if afFieldValueIs name="reserveWasUsed" value=true}}
@@ -38,6 +50,14 @@
       {{> afQuickField name='gustWind'}}
     </fieldset>
     {{/if}}
+    <fieldset>
+      <legend>Tapahtuman tiedot</legend>
+      {{> afQuickField name='discipline' options="allowed"}}
+      {{> afQuickField name='whatHappened'}}
+      {{> afQuickField name='whyHappened'}}
+      {{> afQuickField name='howToPrevent'}}
+      {{> afQuickField name='otherDamages'}}  
+    </fieldset>
     <button type="submit" class="btn btn-primary">Lähetä</button>
   {{/autoForm}}
     </div>
