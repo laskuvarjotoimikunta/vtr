@@ -10,7 +10,7 @@
       {{> afQuickField name='age'}}
       {{> afQuickField name='exitWeight'}}
       {{> afQuickField name='license' options="allowed"}}
-      {{> afQuickField name='certifications'}}
+      {{> afQuickField name='certifications' type="universe-select"}}
       {{> afQuickField name='typeOfJump' options="allowed"}}
       {{> afQuickField name='numberOfJumps'}}
       {{> afQuickField name='numberOfJumpsinThreeMonths'}}
@@ -48,6 +48,9 @@
       <legend>Henkilövahingon tiedot</legend>
       {{> afQuickField name='avgWind'}}
       {{> afQuickField name='gustWind'}}
+      {{> afQuickField name='factors'}}
+      {{> afQuickField name='typeOfInjury'}}
+      {{> afQuickField name='bodyPartOfInjury'}}
     </fieldset>
     {{/if}}
     <fieldset>
