@@ -5,3 +5,7 @@ Meteor.publish('dropzones', function() {
 Meteor.publish('vtr', function() {
   return Vtr.find();
 });
+
+Meteor.publish('files', function() {
+  return Files.find();
+});
