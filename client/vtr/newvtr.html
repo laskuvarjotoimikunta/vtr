@@ -2,7 +2,7 @@
     <div class=span6>
         <h3>Vaaratilanneilmoitus</h3>
         Täytä ilmoitus parhain tiedoin. Voit muokata ilmoitusta jälkikäteen täydentämällä.
-  {{#autoForm collection="Vtr" id="newVtr" type="insert"}}
+  {{#autoForm collection="Vtr" id="newVtr" type="insert" validation="blur"}}
     <fieldset>
       <legend>Yleiset tiedot</legend>
       {{> afQuickField name='whoDidReport' options="allowed"}}
@@ -63,7 +63,7 @@
     </fieldset>
     <fieldset>
       <legend>Liitteet</legend>
-      {{> afQuickField name='files' label="Valitse tiedosto" remove-label="Poista"}}
+      {{> afQuickField name='file' label="Valitse tiedosto" remove-label="Poista"}}
     </fieldset>
     <button type="submit" class="btn btn-primary">Lähetä</button>
   {{/autoForm}}
