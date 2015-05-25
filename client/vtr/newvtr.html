@@ -20,7 +20,19 @@
       {{> afQuickField name='skydiverDz'}}
       {{> afQuickField name='happenedDz'}}
       {{> afQuickField name='location'}}
-      {{> afQuickField name='date'}}
+      <div class="form-group {{#if afFieldMessage name='date'}}has-error{{/if}}">
+        <label class="control-label">{{afFieldLabelText name='date'}}</label>
+          <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-default" id="today" type="button">Tänään</button>
+          </span>
+          <span class="input-group-btn">
+            <button class="btn btn-default" id="yesterday" type="button">Eilen</button>
+          </span>
+          {{> afFieldInput name='date'}}
+          </div>
+          <span class="help-block has-error">{{afFieldMessage name='date'}}</span>
+      </div>
     </fieldset>
     <fieldset>
       <legend>Kaluston tiedot</legend>
@@ -35,15 +47,15 @@
     </fieldset>
     {{> afQuickField name='reserveWasUsed'}}
     {{#if afFieldValueIs name="reserveWasUsed" value=true}}
-    <fieldset>
-      <legend>Varavarjon tiedot</legend>
-      {{> afQuickField name='reserveCanopy'}}
-      {{> afQuickField name='reserveCanopySize'}}
-      {{> afQuickField name='reserveCanopyYear'}}
-    </fieldset>
+      <fieldset>
+        <legend>Varavarjon tiedot</legend>
+        {{> afQuickField name='reserveCanopy'}}
+        {{> afQuickField name='reserveCanopySize'}}
+        {{> afQuickField name='reserveCanopyYear'}}
+      </fieldset>
     {{/if}}
     {{> afQuickField name='personsInjured'}}
-    {{#if afFieldValueIs name="personsInjured" value=true}}
+    {{#unless afFieldValueIs name="personsInjured" value=false}}
     <fieldset>
       <legend>Henkilövahingon tiedot</legend>
       {{> afQuickField name='avgWind'}}
@@ -52,7 +64,7 @@
       {{> afQuickField name='typeOfInjury'}}
       {{> afQuickField name='bodyPartOfInjury'}}
     </fieldset>
-    {{/if}}
+    {{/unless}}
     <fieldset>
       <legend>Tapahtuman tiedot</legend>
       {{> afQuickField name='discipline' options="allowed"}}
