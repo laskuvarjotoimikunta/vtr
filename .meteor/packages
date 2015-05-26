@@ -11,7 +11,6 @@ iron:router
 meteorhacks:fast-render
 cfs:standard-packages
 cfs:filesystem
-acemtp:accounts-passwordless
 aldeed:autoform
 rajit:bootstrap3-datepicker
 aldeed:autoform-bs-datepicker
@@ -20,3 +19,4 @@ mrt:flash-messages
 vazco:universe-autoform-select
 yogiben:autoform-file
 copleykj:jquery-autosize
+savikko:accounts-passwordless
