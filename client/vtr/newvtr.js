@@ -9,6 +9,13 @@ AutoForm.hooks({
   }
 });
 
+Template.newVtr.helpers({
+  nameHelper: function() {
+    // fill first name and last name
+   return Meteor.user().profile.firstName + ' ' + Meteor.user().profile.lastName;
+  }
+});
+
 Template.newVtr.events({
     'click #today': function(event) {
         event.stopPropagation();
