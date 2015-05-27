@@ -3,7 +3,8 @@ Meteor.publish('dropzones', function() {
 });
 
 Meteor.publish('vtr', function() {
-  return Vtr.find();
+  var currentUserId = this.userId;
+  return Vtr.find({createdBy: currentUserId});
 });
 
 Meteor.publish('files', function() {
