@@ -29,5 +29,6 @@ SimpleSchema.messages({
     {exp: SimpleSchema.RegEx.Url, msg: "[label] tulee olla oikea URL"},
     {exp: SimpleSchema.RegEx.Id, msg: "[label] tulee olla oikea alphanumeerinen ID"}
   ],
-  keyNotInSchema: "[key] ei ole sallittu skeeman mukaan"
+  keyNotInSchema: "[key] ei ole sallittu skeeman mukaan",
+  moreJumpsinThreeMonthsThanTotal: "Hyppyjä ei voi olla viimeisen 3kk aikana enempää kuin totaalihyppymäärä on"
 });
