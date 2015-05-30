@@ -20,6 +20,16 @@ if (Dropzones.find().count() === 0) {
   });
 
   Dropzones.insert({
+    name: 'Skydive Unity',
+    airfield: 'EFHF',
+    website: 'N/A',
+    "coordinate" : {
+      "lat" : 60.250548, 
+      "lng" : 25.044466 },
+    facebook: 'https://www.facebook.com/skydiveunity'
+  });
+
+  Dropzones.insert({
     name: 'Skydive Finland',
     airfield: 'EFUT',
     website: 'http://www.skydivefinland.fi',
