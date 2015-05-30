@@ -28,6 +28,8 @@ Template.loginPasswordless.helpers({
 
 Template.loginPasswordlessLogin.events({
   'submit #loginPasswordlessLogin': function (event) {
+    document.getElementById("continueButton").disabled=true;
+    document.getElementById("continueButton").value="Vahvistuskoodia lähetetään..";
     var selector = event.target.selector.value;
     console.log('login', selector);
     Meteor.sendVerificationCode(selector, function (err, res) {
