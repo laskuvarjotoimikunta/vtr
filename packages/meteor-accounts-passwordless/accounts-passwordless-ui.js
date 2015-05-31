@@ -30,7 +30,7 @@ Template.loginPasswordlessLogin.events({
   'submit #loginPasswordlessLogin': function (event) {
     document.getElementById("continueButton").disabled=true;
     Session.set('loginPasswordlessMessage', 'Vahvistuskoodia lähetetään..');
-    var selector = event.target.selector.value;
+    var selector = event.target.selector.value.toLowerCase();
     console.log('login', selector);
     Meteor.sendVerificationCode(selector, function (err, res) {
       console.log('sendVerificationCode answered', arguments);
