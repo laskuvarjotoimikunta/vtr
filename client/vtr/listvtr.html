@@ -6,8 +6,8 @@
   
 {{#each vtr}}
   <div class="row-fluid">
-            <div class="panel panel-default"> 
-          <div class="panel-heading">
+        <div class="panel panel-default"> 
+          <div class="panel-heading clearfix">
             <h3 class="panel-title"><a href="{{pathFor 'viewVtr'}}">     
               {{name}} | {{prettyDate date}} @ {{location}}</a></h3>
               <span class="pull-right"><a href="{{pathFor 'editVtr'}}"><i class="fa fa-edit"></i> Muokkaa ilmoitusta</a></span>
@@ -16,7 +16,7 @@
             {{whatHappened}}
             <br>
             
-            {{> upload_bootstrap }}          
+            (tähän tulee liitetiedostojen latausmahdollisuus)         
           </div>
         </div>
         
