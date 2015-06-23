@@ -1,7 +1,7 @@
 Meteor.methods({
   emailVtr: function (newVtrDoc) {
     useremail =  Meteor.users.findOne(newVtrDoc.createdBy).emails[0].address;
-    console.log(newVtrDoc.createdBy);
+    this.unblock();
     Email.send({
       from: "Vaaratilanneilmoitus <no-reply@laskuvarjotoimikunta.fi>",
       to: useremail,
