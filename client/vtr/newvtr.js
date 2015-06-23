@@ -3,7 +3,9 @@ AutoForm.hooks({
     // Called when any operation succeeds, where operation will be
     // "insert", "update", "submit", or the method name.
     onSuccess: function(operation, result, template) {
-      FlashMessages.sendSuccess('Vaaratilanneraportti lähetetty.');
+      FlashMessages.sendSuccess('Vaaratilanneraportti tallennettu.');
+      newVtrDoc = Vtr.findOne(this.docId);
+      Meteor.call('emailVtr', newVtrDoc);
       Router.go('listVtr');
     }, 
   }

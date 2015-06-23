@@ -4,6 +4,8 @@ AutoForm.hooks({
     // "insert", "update", "submit", or the method name.
     onSuccess: function(operation, result, template) {
       FlashMessages.sendSuccess('Ilmoitusta muokattu onnistuneesti.');
+      newVtrDoc = Vtr.findOne(this.docId);
+      Meteor.call('emailVtr', newVtrDoc);
       Router.go('viewVtr',{_id: this.docId});
     }, 
   }
