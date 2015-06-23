@@ -1,0 +1,23 @@
+<template name="listDropzones">
+  <div class="page-header">
+    <h1>Yhteisöt</h1>
+  </div>
+  <div class="row-fluid">
+      {{#each dropzones}}
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="panel panel-default"> 
+          <div class="panel-heading">
+            <h3 class="panel-title">{{name}}</h3>
+          </div>
+          <div class="panel-body">     
+                KP <i class="fa fa-angle-double-right"></i> {{headOfTraining}}<br>
+                AKP <i class="fa fa-angle-double-right"></i> {{viceHeadOfTraining}}<br>
+                TP <i class="fa fa-angle-double-right"></i> {{headOfSafety}}<br>
+            <br>
+              <i class="fa fa-edit"></i> <a href="{{pathFor 'editDropzone'}}">Muokkaa</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+</template>
