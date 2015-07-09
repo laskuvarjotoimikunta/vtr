@@ -1,25 +1,28 @@
 <template name="listVtr">
-  <div class="page-header">
-    <h1>Kaikki vaaratilanneilmoitukset</h1>
-  </div>
-  
-  {{#each vtr}}
-    <div class="row-fluid">
-          <div class="panel panel-default"> 
-            <div class="panel-heading clearfix">
-              <h3 class="panel-title"><a href="{{pathFor 'viewVtr'}}">     
-                {{name}} | {{prettyDate date}} @ {{location}}</a></h3>
-                <span class="pull-right"><a href="{{pathFor 'editVtr'}}"><i class="fa fa-edit"></i> Muokkaa ilmoitusta</a></span>
-            </div>
-            <div class="panel-body">
-              {{whatHappened}}
-              <br>    
-              {{attachments}}       
-            </div>
-          </div>    
+  {{#with ownVtr}}
+    {{#if count}}
+      <div class="page-header">
+        <h1>Omat vaaratilanneilmoituksesi</h1>
       </div>
-  {{/each}}
+        {{#each this}}
+         {{>itemVtr}}
+        {{/each}}
+    {{/if}}
+  {{/with}}
+  {{#with dzVtr}}
+    {{#if count}}
+      <div class="page-header">
+        <h1>Yhteisösi vaaratilanneilmoitukset</h1>
+      </div>
+        {{#each this}}
+         {{>itemVtr}}
+        {{/each}}
+    {{/if}}
+  {{/with}}
+
 </template>
+
+
 
 
 
