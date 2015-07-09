@@ -21,7 +21,6 @@ if (Meteor.isClient) {
    * @param [callback]
    */
   Meteor.loginWithPasswordless = function (options, callback) {
-    console.log('lwpl', options);
     Accounts.callLoginMethod({
       methodArguments: [{
         selector: Session.get('accounts-passwordless.selector') || options.selector,
@@ -58,7 +57,7 @@ if(Meteor.isServer) {
 
     sendVerificationCode: {
       subject: function (code) {
-        return "Kirjautumiskoodisi on " + code + ".";
+        return "Kirjautumiskoodisi on " + code;
       },
       text: function (user, code) {
         var greeting = "Hei,";
@@ -194,7 +193,6 @@ if(Meteor.isServer) {
     } else {
       uid = createUser({ email: email });
       user = Meteor.users.findOne(uid);
-      console.log('user created ', uid, user);
     }
 
     if(user) {
