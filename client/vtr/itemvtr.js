@@ -2,6 +2,12 @@ Template.itemVtr.helpers({
   dzName: function(dz) {
     return Dropzones.findOne(dz).name;
   },
+  creator: function() {
+    if (createdBy===Meteor.userId()) {
+      return true;
+    }
+    else { return false; }
+  },
   prettyDate: function(date) {
     // why? for the reason that we want to remove time from displaying date
     moment.lang('fi', {
