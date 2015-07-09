@@ -58,13 +58,13 @@ if(Meteor.isServer) {
 
     sendVerificationCode: {
       subject: function (code) {
-        return "Kirjautumiskoodisi vaaratilanneilmoituskoneeseen on " + code + ".";
+        return "Kirjautumiskoodisi on " + code + ".";
       },
       text: function (user, code) {
         var greeting = "Hei,";
         return greeting + "\n"
           + "\n"
-          + "Kirjautumiskoodisi " + code + ".\n"
+          + "Kirjautumiskoodisi vaaratilanneilmoituskoneeseen on " + code + ".\n"
           + "\n"
           + "Blue skies.\n";
       }
