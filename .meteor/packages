@@ -8,7 +8,6 @@ coffeescript
 less
 email
 iron:router
-meteorhacks:fast-render
 cfs:standard-packages
 cfs:filesystem
 aldeed:autoform
