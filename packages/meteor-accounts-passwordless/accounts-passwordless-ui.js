@@ -31,9 +31,7 @@ Template.loginPasswordlessLogin.events({
     document.getElementById("continueButton").disabled=true;
     Session.set('loginPasswordlessMessage', 'Vahvistuskoodia lähetetään..');
     var selector = event.target.selector.value.toLowerCase();
-    console.log('login', selector);
     Meteor.sendVerificationCode(selector, function (err, res) {
-      console.log('sendVerificationCode answered', arguments);
       if(err)
         Session.set('loginPasswordlessMessage', err.error);
       else {
@@ -50,9 +48,7 @@ Template.loginPasswordlessLogin.events({
 Template.loginPasswordlessVerify.events({
   'submit #loginPasswordlessVerify': function (event) {
     var code = event.target.code.value;
-    console.log('verify', code);
     Meteor.loginWithPasswordless({ code: code }, function (err, res) {
-      console.log('loginWithPasswordless answered', arguments);
       if(err)
         Session.set('loginPasswordlessMessage', err.error);
       else {
@@ -75,13 +71,9 @@ Template.loginPasswordlessVerify.events({
 
 Template.loginPasswordlessAskFirstNameLastName.events({
   'submit #loginPasswordlessAskFirstNameLastName': function (event) {
-    console.log('jee');
     var firstname = event.target.firstname.value;
     var lastname = event.target.lastname.value;
-    console.log('firstname', firstname);
-    console.log('lastname', lastname);
     Meteor.setFirstNameLastName(firstname, lastname, function (err, res) {
-      console.log('setFirstname and Lastname answered', arguments);
       if(err)
         Session.set('loginPasswordlessMessage', err.error);
       else {
@@ -108,9 +100,7 @@ Template.loginPasswordlessLogout.helpers({
 
 Template.loginPasswordlessLogout.events({
   'submit #loginPasswordlessLogout': function (event) {
-    console.log('logout');
     Meteor.logout(function (err, res) {
-      console.log('logout answered', arguments);
       if(err)
         Session.set('loginPasswordlessMessage', err.error);
       else {
