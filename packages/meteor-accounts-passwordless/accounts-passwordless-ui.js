@@ -1,5 +1,5 @@
 // set to false to skip the form asking the first name and last name
-var loginPasswordlessAskFirstNameLastName = true;
+var loginPasswordlessAskFirstNameLastName = false;
 
 Session.setDefault('loginPasswordlessMessage', '');
 Session.setDefault('loginPasswordlessState', 'loginPasswordlessLogin');
