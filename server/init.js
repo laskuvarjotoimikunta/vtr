@@ -6,3 +6,17 @@ Meteor.startup(function () {
     checkCreateDirectories: true //create the directories for you
   })
 });
+
+
+var adminemails = [
+  'jari.lehti@ilmailuliitto.fi',                // SIL lajipäällikkö
+  'johanna.huhtapelto@laskuvarjotoimikunta.fi', // LT pj
+  'henri.tyrvainen@laskuvarjotoimikunta.fi',    // LT vpj
+  'mari.lehtonen@laskuvarjotoimikunta.fi'       // LT turvallisuusvastaava
+  ];
+
+// add everyone one adminemails to admin role
+_.each(adminemails, function(email) { 
+  var userId = Meteor.users.findOne({ emails: {$elemMatch: { address: email } } })._id;
+  Roles.addUsersToRoles(userId,['admin'], Roles.GLOBAL_GROUP);
+})
