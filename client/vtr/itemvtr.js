@@ -3,7 +3,7 @@ Template.itemVtr.helpers({
     return Dropzones.findOne(dz).name;
   },
   creator: function() {
-    if (createdBy===Meteor.userId()) {
+    if (this.createdBy===Meteor.userId()) {
       return true;
     }
     else { return false; }
