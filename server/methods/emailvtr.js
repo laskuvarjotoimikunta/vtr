@@ -12,7 +12,7 @@ Meteor.methods({
       to: useremail,
       cc: ccs.join(";"),
       subject: "Uusi vaaratilanneilmoitus tehty",
-      text: "Uusi vaaratilanneilmoitus tehty.\n" +
+      text: "Uusi vaaratilanneilmoitus tehty (tai muokattu).\n\n" +
             "Ilmoitus nähtävissä (kirjautumisen jälkeen) osoitteessa " + Meteor.absoluteUrl() + 'vtr/' + newVtrDoc._id + "\n"
     });
     return true;
