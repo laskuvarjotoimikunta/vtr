@@ -16,6 +16,9 @@ adminemails = [
 
 // add everyone one adminemails to admin role
 _.each(adminemails, function(email) { 
-  var userId = Meteor.users.findOne({ emails: {$elemMatch: { address: email } } })._id;
-  Roles.addUsersToRoles(userId,['admin'], Roles.GLOBAL_GROUP);
+  if (Meteor.users.findOne({ emails: {$elemMatch: { address: email } } })) // if user has already registered
+    {
+      var userId = Meteor.users.findOne({ emails: {$elemMatch: { address: email } } })._id;
+      Roles.addUsersToRoles(userId,['admin'], Roles.GLOBAL_GROUP);
+    }
 })
