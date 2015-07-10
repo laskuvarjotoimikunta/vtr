@@ -5,6 +5,7 @@ Meteor.methods({
     ccs.push(Dropzones.findOne(newVtrDoc.happenedDz).headOfTraining);
     ccs.push(Dropzones.findOne(newVtrDoc.happenedDz).headOfSafety);
     ccs.push(Dropzones.findOne(newVtrDoc.happenedDz).viceHeadOfTraining);
+    ccs.push(adminemails);
     this.unblock();
     Email.send({
       from: "Vaaratilanneilmoitus <no-reply@laskuvarjotoimikunta.fi>",

@@ -7,8 +7,7 @@ Meteor.startup(function () {
   })
 });
 
-
-var adminemails = [
+adminemails = [
   'jari.lehti@ilmailuliitto.fi',                // SIL lajipäällikkö
   'johanna.huhtapelto@laskuvarjotoimikunta.fi', // LT pj
   'henri.tyrvainen@laskuvarjotoimikunta.fi',    // LT vpj
