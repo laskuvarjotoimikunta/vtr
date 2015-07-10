@@ -1,6 +1,6 @@
 Meteor.methods({
   emailVtr: function (newVtrDoc) {
-    useremail =  Meteor.users.findOne(newVtrDoc.createdBy).emails[0].address;
+    useremail =  Meteor.users.findOne(this.userId).emails[0].address;
     var ccs = [];
     ccs.push(Dropzones.findOne(newVtrDoc.happenedDz).headOfTraining);
     ccs.push(Dropzones.findOne(newVtrDoc.happenedDz).headOfSafety);
