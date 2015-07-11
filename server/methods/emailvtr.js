@@ -1,5 +1,13 @@
 Meteor.methods({
-  emailVtr: function (newVtrDoc) {
+  emailVtr: function (newVtrDoc, operation) {
+    if (operation==='update') { 
+        var emailSubject = 'Vaaratilanneilmoitusta muokattu';
+        var emailBody = 'Vaaratilanneilmoitusta on muokattu.';
+    }
+    else {
+        var emailSubject = 'Uusi vaaratilanneilmoitus tehty';
+        var emailBody = 'Uusi vaaratilanneilmoitus on tehty.';
+    };
     useremail =  Meteor.users.findOne(this.userId).emails[0].address;
     var ccs = [];
     ccs.push(Dropzones.findOne(newVtrDoc.happenedDz).headOfTraining);
@@ -11,8 +19,9 @@ Meteor.methods({
       from: "Vaaratilanneilmoitus <no-reply@laskuvarjotoimikunta.fi>",
       to: useremail,
       cc: ccs.join(";"),
-      subject: "Uusi vaaratilanneilmoitus tehty",
-      text: "Uusi vaaratilanneilmoitus tehty (tai muokattu).\n\n" +
+      subject: emailSubject,
+      text: emailBody + 
+            "\n\n" +
             "Ilmoitus nähtävissä (kirjautumisen jälkeen) osoitteessa " + Meteor.absoluteUrl() + 'vtr/' + newVtrDoc._id + "\n"
     });
     return true;
