@@ -1,8 +1,7 @@
 <template name="newVtr">
     <div class=span6>
         <h3>Vaaratilanneilmoitus</h3>
-        <p>Täytä ilmoitus parhain tiedoin.</p>
-        <p>Voit muokata ilmoitusta jälkikäteen täydentämällä.</p>
+        <p>Täytä ilmoitus parhain tiedoin. Pakolliset kentät on merkitty punaisella tähdellä. Lomaketta ei voi lähettää eteenpäin ennenkuin kaikki kentät on täytetty oikein.</p>
         <p>Tekemästäsi ilmoituksesta lähtee sähköpostitse tieto tapahtumapaikan yhteisön koulutus-, apulaiskoulutus-, ja turvallisuuspäällikölle, SIL:n lajipäällikölle, Laskuvarjotoimikunnan pj:lle, vpj:lle ja turvallisuusvastaavalle sekä vuosittaisen vaaratilannekoosteen tekijälle. Saat myös itsellesi saman tiedon sähköpostiisi.</p>
   {{#autoForm collection="Vtr" id="newVtr" type="insert" validation="blur"}}
     <fieldset>

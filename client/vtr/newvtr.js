@@ -1,8 +1,7 @@
 AutoForm.hooks({
   newVtr: {
-    onSuccess: function(operation, result, template) {
-      newVtrDoc = Vtr.findOne(this.docId);
-      Meteor.call('emailVtr', newVtrDoc, operation);
+    onSuccess: function(operation, result) {
+      Meteor.call('emailVtr', result, operation);
       FlashMessages.sendSuccess('Vaaratilanneraportti tallennettu ja sähköposti lähetetty.');
       Router.go('listVtr');
     }, 
