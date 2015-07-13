@@ -16,3 +16,7 @@ Meteor.publish('dzVtrs', function() {
   var currentUserDzIds = _.map(currentUserDzs,function (value){ return value._id;});
   return Vtr.find({happenedDz: {$in: currentUserDzIds}});
 });
+
+Meteor.publish('AllVtrs', function() { // publish all vtrs to admins
+  if (Roles.userIsInRole(this.userId,['admin'])) { return Vtr.find(); } else { return true; }
+});

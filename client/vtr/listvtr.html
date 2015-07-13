@@ -21,6 +21,19 @@
     {{/if}}
   {{/with}}
 
+  {{#if isInRole 'admin'}}
+      {{#with allVtr}}
+      {{#if count}}
+        <div class="page-header">
+          <h1>Kaikki vaaratilanneilmoitukset (koska olet admin)</h1>
+        </div>
+          {{#each this}}
+           {{>itemVtr}}
+          {{/each}}
+      {{/if}}
+    {{/with}}
+  {{/if}}
+
 </template>
 
 

@@ -10,5 +10,8 @@ Template.listVtr.helpers({
                         {headOfSafety: currentUserEmail}]}).fetch();
       var currentUserDzIds = _.map(currentUserDzs,function (value){ return value._id;});
       return Vtr.find({happenedDz: {$in: currentUserDzIds}},{sort: {date: -1}});
+  },
+  allVtr: function() {
+      return Vtr.find();
   }
 });
