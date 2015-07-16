@@ -21,8 +21,9 @@ Meteor.methods({
     console.log('Added ' + ccs.join(";") + ' as carbon copies');
     this.unblock();
     Email.send({
-      from: "Vaaratilanneilmoitus <no-reply@laskuvarjotoimikunta.fi>",
-      to: useremail,
+      from: "Vaaratilanneilmoitus <vtr@laskuvarjotoimikunta.fi>",
+      to: "Vaaratilanneilmoitus <vtr@laskuvarjotoimikunta.fi>",
+      bcc: useremail,
       cc: ccs.join(";"),
       subject: emailSubject,
       text: emailBody + 
