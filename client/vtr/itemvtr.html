@@ -1,18 +1,23 @@
 <template name="itemVtr">
   <div class="row-fluid">
-    <div class="panel panel-info"> 
+    <div class="panel panel-default"> 
       <div class="panel-heading clearfix">
-        <h3 class="panel-title"><a href="{{pathFor 'viewVtr'}}">     
-          {{prettyDate date}} @ {{dzName happenedDz}} ({{location}}) Lisenssi: {{license}} | Pääkupu: {{mainCanopy}} {{mainCanopySize}}</a></h3>
+        <h3 class="panel-title">    
+          {{prettyDate date}} @ {{dzName happenedDz}} ({{location}}) Lisenssi: {{license}} | Pääkupu: {{mainCanopy}} {{mainCanopySize}}</h3>
           {{#if personsInjured}}<a title="Henkilövahinkoja tapahtui"><i class="fa fa-exclamation-triangle"></i></a> {{typeOfInjury}} {{bodyPartOfInjury}}{{/if}}
+          <span class="pull-right">
+            <a href="{{pathFor 'viewVtr'}}"><button type="button" class="btn btn-default"><i class="fa fa-eye"></i> Tarkastele ilmoitusta</button></a>
+          </span>
+          <span class="pull-right">
           {{#if creator}}
-            <span class="pull-right"><a href="{{pathFor 'editVtr'}}"><i class="fa fa-edit"></i> Muokkaa ilmoitusta</a></span>
+            <a href="{{pathFor 'editVtr'}}"><button type="button" class="btn btn-default"><i class="fa fa-edit"></i> Muokkaa ilmoitusta</button></a>
           {{/if}}
+          </span>
       </div>
 <div class="panel-body">
 <div class="col-md-6 col-sm-6 col-xs-12">
   {{#if whatHappened}}
-  <div class="panel panel-default">
+  <div class="panel panel-info">
     <div class="panel-heading">Mitä tapahtui?</div>
     <div class="panel-body">
       {{#markdown}}{{whatHappened}}{{/markdown}}
@@ -22,7 +27,7 @@
 </div>
 <div class="col-md-6 col-sm-6 col-xs-12">
 {{#if whyHappened}}
-  <div class="panel panel-default">
+  <div class="panel panel-info">
     <div class="panel-heading">Miksi tapahtui?</div>
     <div class="panel-body">
       {{#markdown}}{{whyHappened}}{{/markdown}}
@@ -32,7 +37,7 @@
 </div>
 {{#if attachments}}
 <div class="col-md-12 col-sm-12 col-xs-12">
-  <div class="panel panel-default">
+  <div class="panel panel-info">
     <div class="panel-heading">Liitteet?</div>
     <div class="panel-body">
       {{#markdown}}{{attachments}}{{/markdown}}
