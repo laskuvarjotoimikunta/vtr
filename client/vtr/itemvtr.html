@@ -9,19 +9,15 @@
             <span class="pull-right"><a href="{{pathFor 'editVtr'}}"><i class="fa fa-edit"></i> Muokkaa ilmoitusta</a></span>
           {{/if}}
       </div>
-      <div class="panel-body">
-        {{#markdown}}
-{{whatHappened}}
-        {{/markdown}}
-        <br>
-        {{#markdown}}
-{{whyHappened}}
-        {{/markdown}}
-        <br>    
-        {{#markdown}}
-{{attachments}} 
-        {{/markdown}}  
-      </div>
-    </div>    
+<div class="panel-body">
+<div class="col-md-6 col-sm-6 col-xs-12">
+{{#markdown}}{{whatHappened}}{{/markdown}}
+</div>
+<div class="col-md-6 col-sm-6 col-xs-12">
+{{#markdown}}{{whyHappened}}{{/markdown}}
+</div>
+{{#markdown}}{{attachments}}{{/markdown}}  
+</div>
+</div>    
   </div>
 </template>
