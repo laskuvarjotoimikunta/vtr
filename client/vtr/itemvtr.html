@@ -11,13 +11,36 @@
       </div>
 <div class="panel-body">
 <div class="col-md-6 col-sm-6 col-xs-12">
-{{#markdown}}{{whatHappened}}{{/markdown}}
+  {{#if whatHappened}}
+  <div class="panel panel-default">
+    <div class="panel-heading">Mitä tapahtui?</div>
+    <div class="panel-body">
+      {{#markdown}}{{whatHappened}}{{/markdown}}
+    </div>
+  </div>
+  {{/if}}
 </div>
 <div class="col-md-6 col-sm-6 col-xs-12">
-{{#markdown}}{{whyHappened}}{{/markdown}}
-</div>
-{{#markdown}}{{attachments}}{{/markdown}}  
-</div>
-</div>    
+{{#if whyHappened}}
+  <div class="panel panel-default">
+    <div class="panel-heading">Miksi tapahtui?</div>
+    <div class="panel-body">
+      {{#markdown}}{{whyHappened}}{{/markdown}}
+    </div>
   </div>
+{{/if}}
+</div>
+{{#if attachments}}
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">Liitteet?</div>
+    <div class="panel-body">
+      {{#markdown}}{{attachments}}{{/markdown}}
+    </div>
+  </div> 
+</div>
+{{/if}}
+</div>
+</div>
+</div>
 </template>
