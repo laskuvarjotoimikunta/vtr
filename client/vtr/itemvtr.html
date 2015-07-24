@@ -3,15 +3,23 @@
     <div class="panel panel-default"> 
       <div class="panel-heading clearfix">
         <h3 class="panel-title"><a href="{{pathFor 'viewVtr'}}">     
-          {{prettyDate date}} @ {{dzName happenedDz}} ({{location}})</a></h3>
+          {{#if personsInjured}}<i class="fa fa-exclamation-triangle"></i>{{/if}}{{prettyDate date}} @ {{dzName happenedDz}} ({{location}}) Lisenssi: {{license}} | Pääkupu: {{mainCanopy}} {{mainCanopySize}} |  </a></h3>
           {{#if creator}}
             <span class="pull-right"><a href="{{pathFor 'editVtr'}}"><i class="fa fa-edit"></i> Muokkaa ilmoitusta</a></span>
           {{/if}}
       </div>
       <div class="panel-body">
-        {{whatHappened}}
+        {{#markdown}}
+{{whatHappened}}
+        {{/markdown}}
+        <br>
+        {{#markdown}}
+{{whyHappened}}
+        {{/markdown}}
         <br>    
-        {{attachments}}       
+        {{#markdown}}
+{{attachments}} 
+        {{/markdown}}  
       </div>
     </div>    
   </div>
