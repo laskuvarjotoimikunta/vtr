@@ -1,8 +1,103 @@
 <template name="viewVtr">
-  <div class="page-header">
-    <h1>Vaaratilanneilmoitus</h1>
+    <div class=span6>
+        <h3>Vaaratilanneilmoitus</h3>
+  {{#autoForm collection="Vtr" doc=this id="viewVtr" type="disabled"}}
+    <fieldset>
+      <legend>Yleiset tiedot</legend>
+      {{> afQuickField name='whoDidReport' options="allowed"}}
+      {{> afQuickField name='subject'}}
+      {{> afQuickField name='phoneNumber'}}
+      {{> afQuickField name='age'}}
+      {{> afQuickField name='exitWeight'}}
+      {{> afQuickField name='license' options="allowed"}}
+      {{> afQuickField name='certifications' type="universe-select"}}
+      {{> afQuickField name='typeOfJump' options="allowed"}}
+      {{> afQuickField name='numberOfJumps'}}
+      {{> afQuickField name='numberOfJumpsinThreeMonths'}}
+    </fieldset>
+    <fieldset>
+      <legend>Tapahtuman sijainti ja aika</legend>
+      {{> afQuickField name='skydiverDz'}}
+      {{> afQuickField name='happenedDz'}}
+      {{> afQuickField name='location'}}
+      <div class="form-group {{#if afFieldMessage name='date'}}has-error{{/if}}">
+        <label class="control-label">{{afFieldLabelText name='date'}}</label>
+          <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-default" id="today" type="button">Tänään</button>
+          </span>
+          <span class="input-group-btn">
+            <button class="btn btn-default" id="yesterday" type="button">Eilen</button>
+          </span>
+          {{> afFieldInput name='date'}}
+          </div>
+          <span class="help-block has-error">{{afFieldMessage name='date'}}</span>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Kaluston tiedot</legend>
+      {{> afQuickField name='mainCanopy'}}
+      {{> afQuickField name='mainCanopySize'}}
+      {{> afQuickField name='mainCanopyJumpsApprox'}}
+      {{> afQuickField name='jumpsWithCanopy' options="allowed"}}
+      {{> afQuickField name='rig'}}
+      {{> afQuickField name='jumpsWithRig' options="allowed"}}
+      {{> afQuickField name='openingSystem' options="allowed"}}
+      {{> afQuickField name='pilotChuteType' options="allowed"}}
+    </fieldset>
+    {{> afQuickField name='reserveWasUsed'}}
+    {{#if reserveWasUsed}}
+      <fieldset>
+        <legend>Varavarjon tiedot</legend>
+        {{> afQuickField name='reserveCanopy'}}
+        {{> afQuickField name='reserveCanopySize'}}
+      </fieldset>
+    {{/if}}
+    {{> afQuickField name='personsInjured'}}
+    {{#if personsInjured}}
+    <fieldset>
+      <legend>Henkilövahingon tiedot</legend>
+      {{> afQuickField name='avgWind'}}
+      {{> afQuickField name='gustWind'}}
+      {{> afQuickField name='factors'}}
+      {{> afQuickField name='typeOfInjury'}}
+      {{> afQuickField name='bodyPartOfInjury'}}
+    </fieldset>
+    {{/if}}
+    <fieldset>
+      <legend>Tapahtuman tiedot</legend>
+      {{> afQuickField name='discipline' options="allowed"}}
+  <div class="col-md-12 col-sm-12 col-xs-12">
+  {{#if whatHappened}}
+    <div class="panel panel-default">
+      <div class="panel-heading">Mitä tapahtui?</div>
+      <div class="panel-body">
+        {{#markdown}}{{whatHappened}}{{/markdown}}
+      </div>
+    </div>
+    {{/if}}
   </div>
-  <div class="row-fluid">
-        {{> quickForm collection="Vtr" doc=this id="viewVtr" type="readonly" omitFields="createdBy, modifiedBy"}}
+  <div class="col-md-12 col-sm-12 col-xs-12">
+  {{#if whyHappened}}
+    <div class="panel panel-default">
+      <div class="panel-heading">Miksi tapahtui?</div>
+      <div class="panel-body">
+        {{#markdown}}{{whyHappened}}{{/markdown}}
+      </div>
+    </div>
+  {{/if}}
+  </div>
+    {{#if attachments}}
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">Liitteet?</div>
+        <div class="panel-body">
+          {{#markdown}}{{attachments}}{{/markdown}}
+        </div>
+      </div> 
+    </div>
+  {{/if}} 
+    </fieldset>
+  {{/autoForm}}
     </div>
 </template>
