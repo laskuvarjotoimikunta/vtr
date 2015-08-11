@@ -14,7 +14,7 @@ Meteor.publish('dzVtrs', function() {
                         {viceHeadOfTraining: currentUserEmail},
                         {headOfSafety: currentUserEmail}]}).fetch();
   var currentUserDzIds = _.map(currentUserDzs,function (value){ return value._id;});
-  return Vtr.find({happenedDz: {$in: currentUserDzIds}}, {sort: {date: -1}});
+  return Vtr.find({happenedDz: {$in: currentUserDzIds}}, {fields: {phoneNumber: 0, age: 0}, sort: {date: -1}});
 });
 
 Meteor.publish('AllVtrs', function() { // publish all vtrs to admins
