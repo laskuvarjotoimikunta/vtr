@@ -4,11 +4,11 @@ Meteor.methods({
     console.log('Starting to send email on vtr ' + newVtrDoc._id + ' user ' + this.userId + ' type ' + operation);
     console.log('Whole document: ' + JSON.stringify(newVtrDoc));
     if (operation==='update') { 
-        var emailSubject = 'Vaaratilanneilmoitusta muokattu ' + newVtrDoc.subject;
+        var emailSubject = 'Vaaratilanneilmoitusta muokattu - ' + newVtrDoc.subject;
         var emailBody = 'Vaaratilanneilmoitusta on muokattu.';
     }
     else {
-        var emailSubject = 'Uusi vaaratilanneilmoitus tehty ' + newVtrDoc.subject;
+        var emailSubject = 'Uusi vaaratilanneilmoitus tehty - ' + newVtrDoc.subject;
         var emailBody = 'Uusi vaaratilanneilmoitus on tehty.';
     };
     useremail =  Meteor.users.findOne(this.userId).emails[0].address;
@@ -18,7 +18,7 @@ Meteor.methods({
     ccs.push(Dropzones.findOne(newVtrDoc.happenedDz).headOfSafety);
     ccs.push(Dropzones.findOne(newVtrDoc.happenedDz).viceHeadOfTraining);
     ccs.push(adminemails);
-    console.log('Added ' + ccs.join(";") + ' as carbon copies');
+    console.log('Added ' + ccs.join(",") + ' as carbon copies');
     this.unblock();
     Email.send({
       from: "Vaaratilanneilmoitus <vtr@laskuvarjotoimikunta.fi>",
