@@ -6,6 +6,7 @@ Meteor.methods({
     if (operation==='update') { 
         var emailSubject = 'Vaaratilanneilmoitusta muokattu - ' + newVtrDoc.subject;
         var emailBody = 'Vaaratilanneilmoitusta on muokattu.';
+        var changes = Vtrchanges.find({vtr: vtrId}).fetch();
     }
     else {
         var emailSubject = 'Uusi vaaratilanneilmoitus tehty - ' + newVtrDoc.subject;
@@ -28,7 +29,8 @@ Meteor.methods({
       subject: emailSubject,
       text: emailBody + 
             "\n\n" +
-            "Ilmoitus nähtävissä (kirjautumisen jälkeen) osoitteessa " + Meteor.absoluteUrl() + 'vtr/' + newVtrDoc._id + "\n"
+            "Ilmoitus nähtävissä (kirjautumisen jälkeen) osoitteessa " + Meteor.absoluteUrl() + 'vtr/' + newVtrDoc._id + "\n\n" +
+            JSON.stringify(changes, true, 2)
     });
     console.log('Email sent.');
     return true;
