@@ -15,6 +15,14 @@ Meteor.methods({
     useremail =  Meteor.users.findOne(this.userId).emails[0].address;
     console.log('Added user email ' + useremail + ' as recipient of email');
     var ccs = [];
+    if(typeof changes !== "undefined")
+            {
+              changes = JSON.stringify(changes, true, 2);
+            }
+      else
+            {
+              changes = '';
+            }
     ccs.push(Dropzones.findOne(newVtrDoc.happenedDz).headOfTraining);
     ccs.push(Dropzones.findOne(newVtrDoc.happenedDz).headOfSafety);
     ccs.push(Dropzones.findOne(newVtrDoc.happenedDz).viceHeadOfTraining);
@@ -30,7 +38,7 @@ Meteor.methods({
       text: emailBody + 
             "\n\n" +
             "Ilmoitus nähtävissä (kirjautumisen jälkeen) osoitteessa " + Meteor.absoluteUrl() + 'vtr/' + newVtrDoc._id + "\n\n" +
-            JSON.stringify(changes, true, 2)
+            changes
     });
     console.log('Email sent.');
     return true;
