@@ -2,19 +2,20 @@
   <div class="row-fluid">
     <div class="panel panel-default"> 
       <div class="panel-heading clearfix">
-        <h3>{{subject}}</h3>
+        <span class="pull-right">
+          <a href="{{pathFor 'viewVtr'}}"><button type="button" class="btn btn-default"><i class="fa fa-eye"></i> Katso</button></a>
+        </span>
+        <span class="pull-right">
+          {{#if creator}}
+            <a href="{{pathFor 'editVtr'}}"><button type="button" class="btn btn-default"><i class="fa fa-edit"></i> Muokkaa</button></a>
+          {{/if}}
+        </span>
+        <h4>{{subject}}</h4>
         <p>   
           {{prettyDate date}} @ {{dzName happenedDz}} ({{location}}) Lisenssi: {{license}} | Pääkupu: {{mainCanopy}} {{mainCanopySize}}
         </p>
-          {{#if personsInjured}}<a title="Henkilövahinkoja tapahtui"><i class="fa fa-exclamation-triangle"></i></a> {{typeOfInjury}} {{bodyPartOfInjury}}{{/if}}
-          <span class="pull-right">
-            <a href="{{pathFor 'viewVtr'}}"><button type="button" class="btn btn-default"><i class="fa fa-eye"></i> Tarkastele ilmoitusta</button></a>
-          </span>
-          <span class="pull-right">
-          {{#if creator}}
-            <a href="{{pathFor 'editVtr'}}"><button type="button" class="btn btn-default"><i class="fa fa-edit"></i> Muokkaa ilmoitusta</button></a>
-          {{/if}}
-          </span>
+        {{#if reserveWasUsed}}<a title="Varavarjoa käytettiin"><i class="fa fa-life-ring"></i></a>{{/if}}
+        {{#if personsInjured}}<a title="Henkilövahinkoja tapahtui"><i class="fa fa-exclamation-triangle"></i></a> {{typeOfInjury}} {{bodyPartOfInjury}}{{/if}}
       </div>
 <div class="panel-body">
 <div class="col-md-6 col-sm-6 col-xs-12">
