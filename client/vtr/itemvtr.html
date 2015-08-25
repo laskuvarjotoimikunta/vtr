@@ -37,6 +37,26 @@
   </div>
 {{/if}}
 </div>
+{{#if howToPrevent}}
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="panel panel-info">
+    <div class="panel-heading">Miten tapahtuma olisi ollut vältettävissä?</div>
+    <div class="panel-body">
+      {{#markdown}}{{howToPrevent}}{{/markdown}}
+    </div>
+  </div> 
+</div>
+{{/if}}
+{{#if otherDamages}}
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="panel panel-info">
+    <div class="panel-heading">Muut vahingot?</div>
+    <div class="panel-body">
+      {{#markdown}}{{otherDamages}}{{/markdown}}
+    </div>
+  </div> 
+</div>
+{{/if}}
 {{#if attachments}}
 <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="panel panel-info">
