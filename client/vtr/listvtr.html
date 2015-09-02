@@ -2,7 +2,7 @@
   {{#with ownVtr}}
     {{#if count}}
       <div class="page-header">
-        <h1>Omat ilmoituksesi</h1>
+        <h1>Omat ilmoituksesi ({{count}} kpl)</h1>
       </div>
         {{#each this}}
          {{>itemVtr}}
@@ -13,7 +13,7 @@
   {{#with dzVtr}}
     {{#if count}}
       <div class="page-header">
-        <h1>Yhteisösi ilmoitukset</h1>
+        <h1>Yhteisösi ilmoitukset ({{count}} kpl)</h1>
       </div>
         {{#each this}}
          {{>itemVtr}}
@@ -25,7 +25,8 @@
       {{#with allVtr}}
       {{#if count}}
         <div class="page-header">
-          <h1>Kaikki ilmoitukset (koska olet admin)</h1>
+          <h1>Kaikki ilmoitukset ({{count}} kpl)</h1>
+          Näet nämä, koska olet admin.
         </div>
           {{#each this}}
            {{>itemVtr}}
@@ -33,7 +34,6 @@
       {{/if}}
     {{/with}}
   {{/if}}
-
 </template>
 
 
