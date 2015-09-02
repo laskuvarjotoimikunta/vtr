@@ -1,5 +1,6 @@
 <template name="itemVtr">
-  <div class="row-fluid">
+
+   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default"> 
       <div class="panel-heading clearfix">
         <span class="pull-right">
@@ -10,6 +11,9 @@
             <a href="{{pathFor 'editVtr'}}"><button type="button" class="btn btn-default"><i class="fa fa-edit"></i> Muokkaa</button></a>
           {{/if}}
         </span>
+        <span class="pull-right">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{_id}}"><button type="button" class="btn btn-default"><i class="fa fa-plus"></i></button></a>
+        </span>
         <h4>{{subject}}</h4>
         <p>   
           {{prettyDate date}} @ {{dzName happenedDz}} ({{location}}) Lisenssi: {{license}} | Pääkupu: {{mainCanopy}} {{mainCanopySize}}
@@ -17,6 +21,7 @@
         {{#if reserveWasUsed}}<a title="Varavarjoa käytettiin"><i class="fa fa-life-ring"></i></a>{{/if}}
         {{#if personsInjured}}<a title="Henkilövahinkoja tapahtui"><i class="fa fa-exclamation-triangle"></i></a> {{typeOfInjury}} {{bodyPartOfInjury}}{{/if}}
       </div>
+<div id="collapse-{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{_id}}">
 <div class="panel-body">
 <div class="col-md-6 col-sm-6 col-xs-12">
   {{#if whatHappened}}
@@ -68,6 +73,7 @@
   </div> 
 </div>
 {{/if}}
+</div>
 </div>
 </div>
 </div>
