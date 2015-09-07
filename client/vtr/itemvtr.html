@@ -16,7 +16,7 @@
         </span>
         <h4>{{subject}}</h4>
         <p>   
-          {{prettyDate date}} @ {{dzName happenedDz}} ({{location}}) Lisenssi: {{license}} | Pääkupu: {{mainCanopy}} {{mainCanopySize}}
+          {{prettyDate date}} @ {{dzName happenedDz}} ({{location}}) Lisenssi: {{license}} | Pääkupu: {{mainCanopy}}  {{mainCanopySize}} (WL {{wingLoad mainCanopySize}})
         </p>
         {{#if reserveWasUsed}}<a title="Varavarjoa käytettiin"><i class="fa fa-life-ring"></i></a>{{/if}}
         {{#if personsInjured}}<a title="Henkilövahinkoja tapahtui"><i class="fa fa-exclamation-triangle"></i></a> {{typeOfInjury}} {{bodyPartOfInjury}}{{/if}}

@@ -8,6 +8,10 @@ Template.itemVtr.helpers({
     }
     else { return false; }
   },
+  wingLoad: function(canopySize){
+    exitWeightLbs = this.exitWeight*2.20462;
+    return (exitWeightLbs/canopySize).toFixed(2);
+  },
   prettyDate: function(date) {
     // why? for the reason that we want to remove time from displaying date
     moment.lang('fi', {
