@@ -4,7 +4,11 @@ Meteor.publish('dropzones', function() {
 
 Meteor.publish('myVtrs', function() {
   var currentUserId = this.userId;
-  return Vtr.find({createdBy: currentUserId}, {sort: {date: -1}});
+  if (currentUserId) {
+    return Vtr.find({createdBy: currentUserId}, {sort: {date: -1}});
+  } else {
+    this.ready();
+  }
 });
 
 Meteor.publish('dzVtrs', function() {
@@ -14,9 +18,17 @@ Meteor.publish('dzVtrs', function() {
                         {viceHeadOfTraining: currentUserEmail},
                         {headOfSafety: currentUserEmail}]}).fetch();
   var currentUserDzIds = _.map(currentUserDzs,function (value){ return value._id;});
-  return Vtr.find({happenedDz: {$in: currentUserDzIds}}, {fields: {phoneNumber: 0, age: 0}, sort: {date: -1}});
+  if (currentUserDzIds) { 
+    return Vtr.find({happenedDz: {$in: currentUserDzIds}}, {fields: {phoneNumber: 0, age: 0}, sort: {date: -1}});
+  } else {
+    this.ready();
+  }
 });
 
 Meteor.publish('AllVtrs', function() { // publish all vtrs to admins
-  if (Roles.userIsInRole(this.userId,['admin'])) { return Vtr.find({}, {sort: {date: -1}}); } else { return true; }
+  if (Roles.userIsInRole(this.userId,['admin'])) { 
+    return Vtr.find({}, {sort: {date: -1}}); 
+  } else { 
+    this.ready(); 
+  }
 });
