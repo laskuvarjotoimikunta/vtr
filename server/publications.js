@@ -1,4 +1,7 @@
 Meteor.publish('dropzones', function() {
+  if (!this.userId) {
+            return this.ready();
+        }
   return Dropzones.find();
 });
 
@@ -12,6 +15,9 @@ Meteor.publish('myVtrs', function() {
 });
 
 Meteor.publish('dzVtrs', function() {
+  if (!this.userId) {
+            return this.ready();
+        }
   var currentUserEmail = Meteor.users.findOne(this.userId).emails[0].address;
   var currentUserDzs = Dropzones.find({$or:[
                         {headOfTraining: currentUserEmail},
