@@ -56,7 +56,7 @@
       </fieldset>
     {{/if}}
     {{> afQuickField name='personsInjured'}}
-    {{#unless afFieldValueIs name="personsInjured" value=false}}
+    {{#if afFieldValueIs name="personsInjured" value=true}}
     <fieldset>
       <legend>Henkilövahingon tiedot</legend>
       {{> afQuickField name='avgWind'}}
@@ -65,7 +65,7 @@
       {{> afQuickField name='typeOfInjury'}}
       {{> afQuickField name='bodyPartOfInjury'}}
     </fieldset>
-    {{/unless}}
+    {{/if}}
     <fieldset>
       <legend>Tapahtuman tiedot</legend>
       {{> afQuickField name='discipline' options="allowed"}}
