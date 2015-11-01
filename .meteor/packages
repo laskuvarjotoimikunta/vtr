@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 coffeescript
-less
 email
 iron:router
 cfs:standard-packages
@@ -35,3 +34,5 @@ random
 ejson
 spacebars
 check
+twbs:bootstrap
+fortawesome:fontawesome
