@@ -1,6 +1,10 @@
 Template.itemVtr.helpers({
   dzName: function(dz) {
-    return Dropzones.findOne(dz).name;
+    if (dz) {
+      return Dropzones.findOne(dz).name;
+    } else {
+      return null;
+    }
   },
   creator: function() {
     if (this.createdBy===Meteor.userId()) {
