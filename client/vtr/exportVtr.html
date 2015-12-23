@@ -1,0 +1,77 @@
+<template name="exportVtr">
+<h3>Vienti</h3>
+<p>Kopioi taulukko leikepöydälle ja liitä tämän jälkeen esim Exceliin.</p>
+  <table id="exportVtr">
+  <tr>
+    <th>Tapahtumapaikan yhteisö</th>
+    <th>Pvm</th>
+    <th>Ikä</th>
+    <th>Exit-paino</th>
+    <th>Lisenssi</th>
+    <th>Hypyn laatu</th>
+    <th>Hyppymäärä (kok)</th>
+    <th>Hyppymäärä (3kk)</th>
+    <th>Päävarjo</th>
+    <th>PV koko</th>
+    <th>VV</th>
+    <th>VV koko</th>
+    <th>Arvio kuvun hyppymäärästä</th>
+    <th>Tuuli huiput</th>
+    <th>Siipikuorma</th>
+    <th>Murtuma</th>
+    <th>Venähdys</th>
+    <th>Muu vamma</th>
+    <th>Käsi</th>
+    <th>Jalka</th>
+    <th>Reisi</th>
+    <th>Selkäranka</th>
+    <th>Pää</th>
+    <th>Muu</th>
+    <th>VV</th>
+    <th>Mitä tapahtui</th>
+    <th>Miksi tapahtui</th>
+    <th>Miten estettävissä</th>
+    <th>Muut vahingot</th>
+    <th>Liitteet</th>
+  </tr>
+  {{#each allVtr}}
+  <tr>
+    <td>{{dzName happenedDz}}</td>
+    <td>{{prettyDate date}}</td>
+    <td>{{age}}</td>
+    <td>{{exitWeight}}</td>
+    <td>{{license}}</td>
+    <td>{{discipline}}</td>
+    <td>{{numberOfJumps}}</td>
+    <td>{{numberOfJumpsinThreeMonths}}</td>
+    <td>{{mainCanopy}}</td>
+    <td>{{mainCanopySize}}</td>
+    <td>{{reserveCanopy}}</td>
+    <td>{{reserveCanopySize}}</td>
+    <td>{{mainCanopyJumpsApprox}}</td>
+    <td>{{gustWind}}</td>
+    <td>{{countWingLoad exitWeight mainCanopySize}}</td>
+    <td>{{isFieldValue typeOfInjury "Murtuma"}}</td>
+    <td>{{isFieldValue typeOfInjury "Venähdys/revähdys"}}</td>
+    <td>{{isOtherInjury}}</td>
+    <td>{{isFieldValue bodyPartOfInjury "Ranne/kyynärvarsi"}}{{isFieldValue bodyPartOfInjury "Kyynärpää/olkapää"}}</td>
+    <td>{{isFieldValue bodyPartOfInjury "Nilkka/sääri/jalkaterä"}}{{isFieldValue bodyPartOfInjury "Polvi"}}</td>
+    <td>{{isFieldValue bodyPartOfInjury "Reisi"}}</td>
+    <td>{{isFieldValue bodyPartOfInjury "Selkäranka"}}{{isFieldValue bodyPartOfInjury "Niska/kaula"}}</td>
+    <td>{{isFieldValue bodyPartOfInjury "Pää"}}</td>
+    <td>{{isOtherBodyPart}}</td>
+    <td>{{#if reserveWasUsed}}1{{/if}}</td>
+    <td>{{whatHappened}}</td>
+    <td>{{whyHappened}}</td>
+    <td>{{howToPrevent}}</td>
+    <td>{{otherDamages}}</td>
+    <td>{{attachments}}</td>
+  </tr>
+  {{/each}}
+  </table>
+</template>
+
+
+
+
+
