@@ -1,1 +1,5 @@
 [data-required] label:after {content: ' *'; color: red;}
+
+td {
+    vertical-align: top;
+}
