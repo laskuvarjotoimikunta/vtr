@@ -18,7 +18,7 @@ Template.itemVtr.helpers({
   },
   prettyDate: function(date) {
     // why? for the reason that we want to remove time from displaying date
-    moment.lang('fi', {
+    moment.locale('fi', {
         'calendar' : {
           sameDay : '[Tänään]',
           lastDay : '[Eilen]',
