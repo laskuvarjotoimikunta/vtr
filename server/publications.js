@@ -1,11 +1,11 @@
-Meteor.publish('dropzones', function() {
+Meteor.publish('dropzones', function() { // publish dropzones to everyone who are logged in
   if (!this.userId) {
             return this.ready();
         }
   return Dropzones.find();
 });
 
-Meteor.publish('myVtrs', function() {
+Meteor.publish('myVtrs', function() { // publish vtrs created by user him/herself
   var currentUserId = this.userId;
   if (currentUserId) {
     return Vtr.find({createdBy: currentUserId}, {sort: {date: -1}});
@@ -14,7 +14,7 @@ Meteor.publish('myVtrs', function() {
   }
 });
 
-Meteor.publish('dzVtrs', function() {
+Meteor.publish('dzVtrs', function() { // publish vtrs created at dropzone user is responsible at
   if (!this.userId) {
             return this.ready();
         }
