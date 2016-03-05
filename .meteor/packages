@@ -6,8 +6,6 @@
 coffeescript
 email
 iron:router
-cfs:standard-packages
-cfs:filesystem
 aldeed:autoform
 rajit:bootstrap3-datepicker
 aldeed:autoform-bs-datepicker
