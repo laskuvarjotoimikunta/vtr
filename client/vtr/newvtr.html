@@ -47,7 +47,10 @@
       {{> afQuickField name='openingSystem' options="allowed"}}
       {{> afQuickField name='pilotChuteType' options="allowed"}}
     </fieldset>
+    <fieldset>
+      <legend>Varavarjon käyttö</legend>
     {{> afQuickField name='reserveWasUsed'}}
+    </fieldset>
     {{#if afFieldValueIs name="reserveWasUsed" value=true}}
       <fieldset>
         <legend>Varavarjon tiedot</legend>
@@ -55,7 +58,10 @@
         {{> afQuickField name='reserveCanopySize'}}
       </fieldset>
     {{/if}}
+    <fieldset>
+      <legend>Henkilövahingot</legend>
     {{> afQuickField name='personsInjured'}}
+    </fieldset>
     {{#if afFieldValueIs name="personsInjured" value=true}}
     <fieldset>
       <legend>Henkilövahingon tiedot</legend>
