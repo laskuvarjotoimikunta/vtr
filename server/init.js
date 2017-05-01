@@ -3,8 +3,7 @@ Meteor.startup(function () {
   adminemails = [
     'jari.lehti@ilmailuliitto.fi',                // SIL lajipäällikkö
     'johanna.huhtapelto@laskuvarjotoimikunta.fi', // LT pj
-    'henri.tyrvainen@laskuvarjotoimikunta.fi',    // LT vpj
-    'timo.kokkonen@pp3.inet.fi',                  // LT turvallisuusvastaava
+    'timo.kokkonen@pp3.inet.fi',                  // LT vpj, LT turvallisuusvastaava
     'kpaulara@paju.oulu.fi'                       // Vuosikoosteen tekijä
     ];
 
